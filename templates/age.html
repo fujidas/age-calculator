@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9966, #ff5e62);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      color: #ff5e62;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin: 8px 0;
+      color: #333;
+    }
+    .highlight {
+      color: #ff5e62;
+      font-weight: bold;
+    }
+    .totals {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f8f8;
+      border-radius: 10px;
+      text-align: left;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #ff5e62;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: #d9444d;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .error {
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    {% if error %}
+      <h1 class="error">{{ error }}</h1>
+    {% else %}
+      <h1>🎂 Age Breakdown 🎂</h1>
+      <p><strong>Date of Birth:</strong> {{ dob }}</p>
+      <p><strong>Current Date:</strong> {{ now }}</p>
+
+      <p>
+        You are <span class="highlight">{{ details.years }}</span> years, 
+        <span class="highlight">{{ details.months }}</span> months, 
+        <span class="highlight">{{ details.days }}</span> days, 
+        <span class="highlight">{{ details.hours }}</span> hours, 
+        <span class="highlight">{{ details.minutes }}</span> minutes, 
+        <span class="highlight">{{ details.seconds }}</span> seconds old.
+      </p>
+
+      <div class="totals">
+        <p><strong>Total Days:</strong> {{ details.total_days }}</p>
+        <p><strong>Total Hours:</strong> {{ details.total_hours }}</p>
+        <p><strong>Total Minutes:</strong> {{ details.total_minutes }}</p>
+        <p><strong>Total Seconds:</strong> {{ details.total_seconds }}</p>
+      </div>
+    {% endif %}
+    <a href="/">🔙 Back</a>
+  </div>
+</body>
+</html>
