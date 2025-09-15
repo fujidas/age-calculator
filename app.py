@@ -87,10 +87,3 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
-from flask import Flask, send_from_directory
-
-app = Flask(__name__)
-
-@app.route('/google69d6a48cf92fe33b.html')
-def google_verification():
-    return send_from_directory('static', 'google69d6a48cf92fe33b.html')
